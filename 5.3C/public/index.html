@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Catalog (MongoDB MVC Client)</title>
+    <style>
+        /* ... (CSS remains the same for simplicity) ... */
+        body { font-family: sans-serif; margin: 20px; background-color: #f4f4f9; }
+        h1 { color: #333; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+        #books-list { list-style: none; padding: 0; }
+        .book-item { 
+            background-color: #fff; 
+            margin-bottom: 15px; 
+            padding: 15px; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        .book-title { font-weight: bold; color: #007bff; display: block; margin-bottom: 5px;}
+        .book-author { font-style: italic; color: #555; }
+        .book-details { font-size: 0.9em; color: #777; margin-top: 5px; }
+        .book-price { font-weight: bold; color: green; float: right; }
+    </style>
+</head>
+<body>
+    <h1>📚 Books Catalog (MongoDB)</h1>
+    <ul id="books-list">
+        <li>Loading catalog from API...</li>
+    </ul>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const listElement = document.getElementById('books-list');
+            listElement.innerHTML = ''; 
+
+            fetch('/api/books')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(books => {
+                    if (books.length === 0) {
+                        listElement.innerHTML = '<p>No books found. Please run seed.js.</p>';
+                        return;
+                    }
+
+                    books.forEach(book => {
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('book-item');
+                        
+                        listItem.innerHTML = `
+                            <span class="book-price">AUD $${book.price}</span>
+                            <span class="book-title">${book.title}</span>
+                            <span class="book-author">by ${book.author}</span>
+                            <div class="book-details">
+                                <p>Year: ${book.year} | Genre: ${book.genre}</p>
+                            </div>
+                        `;
+                        
+                        listElement.appendChild(listItem);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching books:', error);
+                    listElement.innerHTML = `<p style="color: red;">Failed to load catalog: ${error.message}. Ensure MongoDB is running.</p>`;
+                });
+        });
+    </script>
+</body>
+</html>
