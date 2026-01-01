@@ -1,0 +1,146 @@
+/* public/css/styles.css */
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.hero-section {
+  padding: 6rem 0;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("https://source.unsplash.com/1600x600/?cinema,movies") center/cover
+      no-repeat;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+.section-movies {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section-header h4 {
+  margin-bottom: 0.5rem;
+}
+
+.section-header span {
+  font-size: 0.9rem;
+}
+
+.section-accent {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #ff8a65, #ff7043);
+}
+
+.section-about {
+  padding: 3rem 0;
+}
+
+.movie-card img {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.movie-card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.movie-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.flip-card-back {
+  background-color: #212121;
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.movie-description {
+  font-size: 1rem;
+  margin-top: 1.5rem;
+  color: #bdbdbd;
+  line-height: 1.4;
+}
+
+.movie-card .card-title {
+  font-size: 1.3rem;
+}
+
+.gradient-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.05)
+  );
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+.movie-meta {
+  margin-bottom: 0.5rem;
+}
+
+.movie-genre {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ffccbc;
+  margin-bottom: 0.5rem;
+}
+
+.movie-description {
+  font-size: 0.9rem;
+  color: #eceff1;
+}
+
+input#search {
+  border-bottom: 1px solid #fff;
+}
+
+input#search + label {
+  color: #b0bec5;
+}
+
+input#search:focus {
+  border-bottom: 1px solid #ff7043;
+  box-shadow: 0 1px 0 0 #ff7043;
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 3rem 1rem;
+  }
+}
+
+/* Flip card */
+.flip-card { perspective: 1000px; cursor: pointer; }
+.flip-card-inner { position: relative; transition: transform 0.6s; transform-style: preserve-3d; }
+.flip-card.is-flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { backface-visibility: hidden; }
+.flip-card-back { transform: rotateY(180deg); }

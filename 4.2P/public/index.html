@@ -1,0 +1,140 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bright Dinkal Carvalho — 225500276</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="grey darken-4">
+
+  <!-- NAVBAR -->
+  <nav class="nav-wrapper black">
+    <div class="container">
+      <a href="#hero" class="brand-logo">
+        <i class="material-icons">movie</i> CinemaScope
+      </a>
+      <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#now-showing">Now Showing</a></li>
+        <li><a href="#top-rated">Top Rated</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav grey darken-4" id="mobile-nav">
+    <li><a href="#hero" class="white-text">Home</a></li>
+    <li><a href="#now-showing" class="white-text">Now Showing</a></li>
+    <li><a href="#top-rated" class="white-text">Top Rated</a></li>
+    <li><a href="#about" class="white-text">About</a></li>
+  </ul>
+
+  <!-- HERO -->
+  <section id="hero" class="hero-section">
+    <div class="container center-align">
+      <h2 class="white-text hero-title">CinemaScope</h2>
+      <p class="grey-text text-lighten-2 hero-subtitle">By Bright Dinkal Carvalho (225500276)</p>
+      <p class="grey-text text-lighten-2 hero-subtitle">
+        A modern movie explorer powered by Express, REST APIs, and Materialize UI.
+      </p>
+      <a href="#now-showing" class="btn-large waves-effect waves-light deep-orange accent-3">
+        <i class="material-icons left">play_arrow</i> Explore Now
+      </a>
+    </div>
+  </section>
+
+  <!-- NOW SHOWING -->
+  <section id="now-showing" class="section section-movies">
+    <div class="container">
+      <div class="section-header">
+        <h4 class="white-text">Now Showing</h4>
+        <span class="grey-text text-lighten-1">
+          Movies loaded from the /api/movies endpoint.
+        </span>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12 m6">
+          <i class="material-icons prefix white-text">search</i>
+          <input id="search" type="text" class="white-text" />
+          <label for="search" class="active">Search by title</label>
+        </div>
+        <div class="input-field col s12 m3">
+          <select id="genre-filter" class="browser-default">
+            <option value="" selected>All Genres</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Action">Action</option>
+            <option value="Drama">Drama</option>
+            <option value="Horror">Horror</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="movie-cards" class="row"></div>
+    </div>
+  </section>
+
+  <!-- TOP RATED -->
+  <section id="top-rated" class="section section-accent">
+    <div class="container">
+      <div class="section-header">
+        <h4 class="white-text">Top Rated Highlights</h4>
+        <span class="grey-text text-lighten-3">
+          Example accent section using the same movie data concept.
+        </span>
+      </div>
+      <p class="grey-text text-lighten-2">
+        Extend this section later with filters or a dedicated API endpoint.
+      </p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section section-about">
+    <div class="container">
+      <h5 class="white-text">About CinemaScope</h5>
+      <p class="grey-text text-lighten-2">
+        Demo app showing Express.js REST APIs with a professional Materialize front end.
+      </p>
+      <div class="card-panel grey darken-3 white-text">
+        Name: Bright Dinkal Carvalho<br />
+        ID: 225500276
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer black">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6">
+          <h6 class="white-text">CinemaScope</h6>
+          <p class="grey-text text-lighten-2">
+            Built for learning modern web development.
+          </p>
+        </div>
+        <div class="col s12 m6 right-align">
+          <span class="grey-text text-lighten-1">
+            © 2025 CinemaScope Studio
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/main.js"></script>
+</body>
+</html>
